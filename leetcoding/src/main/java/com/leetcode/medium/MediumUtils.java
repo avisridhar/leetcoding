@@ -2,6 +2,46 @@ package com.leetcode.medium;
 
 public class MediumUtils {
 
+    /**
+     * We can find palindromes around center index and
+     * span our search both ways, to the right and left of the center.
+     * Given that and knowing there's no palindrome on the corners of the input,
+     * we can set the boundaries to 1 and length - 1. While paying attention to
+     * minimum and maximum boundaries of the String, we verify if the characters
+     * at the positions of the symmetrical indexes (left and right) are same
+     * for each central position till we reach our max upper bound center.
+     *
+     * Outer loop is O(N) (max n-2 iterations)
+     * Inner while loop is O(N) (max around (n/2)-1 iterations)
+     * @param s
+     * @return
+     */
+    public String longestPalindrome1(String s) {
+        if (s.length() < 2)
+            return s;
+        int rightIdx, leftIdxIdx;
+        String currentPalindrome;
+        String longestPalindrome = "";
+        for (int centerIdx = 1 ; centerIdx<s.length() - 1 ; centerIdx++) {
+            leftIdxIdx = centerIdx - 1;
+            rightIdx = centerIdx + 1;
+            while (leftIdxIdx >= 0 && rightIdx < s.length()) {
+                if (s.charAt(leftIdxIdx) != s.charAt(rightIdx)) {
+                    break;
+                }
+                currentPalindrome = s.substring(leftIdxIdx, rightIdx + 1);
+                longestPalindrome = currentPalindrome.length() > longestPalindrome.length() ? currentPalindrome : longestPalindrome;
+                leftIdxIdx--;
+                rightIdx--;
+            }
+        }
+        return longestPalindrome;
+    }
+
+    /**
+     * Longest palindrome
+     */
+
     // default to 0s
     int resultStart;
     int resultLength;
