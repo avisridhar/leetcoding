@@ -1,4 +1,5 @@
 package com.ctci.ds.trees;
+import java.util.List;
 
 
 /**
@@ -9,6 +10,59 @@ public class TreesUtil {
      * Inorder tree traversal of Binary Tree
      * recursion ; iterative
      */
+    /**
+     * e.g., https://leetcode.com/problems/binary-tree-inorder-traversal/
+     * Given a binary tree, return the inorder traversal of its nodes' values.
+     *
+     * Example:
+     *
+     * Input: [1,null,2,3]
+     *    1
+     *     \
+     *      2
+     *     /
+     *    3
+     *
+     * Output: [1,3,2]
+     *
+     * Follow up: Recursive solution is trivial, could you do it iteratively?
+     */
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     *     int val;
+     *     TreeNode left;
+     *     TreeNode right;
+     *     TreeNode() {}
+     *     TreeNode(int val) { this.val = val; }
+     *     TreeNode(int val, TreeNode left, TreeNode right) {
+     *         this.val = val;
+     *         this.left = left;
+     *         this.right = right;
+     *     }
+     * }
+     */
+    class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) {this.val = val;}
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    public List<Integer> inorderTraversal(TreeNode root) {
+
+
+        return null;
+
+    }
+
+
 
     /**
      * Lowest Common Ancestor (LCA) of Binary Tree
