@@ -2,36 +2,32 @@ package com.leetcode.medium;
 
 public class MediumUtils {
 
-    /**
-     * Longest palindromic substring
-     */
-    int longestPalindromeSubstring(String s) {
-        if (s.length() == 1) return 1;
-        int maxLen = 0;
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < s.length(); i++) {
-            sb.append(s.charAt(i));
-            if (sb.length() > 1 && isPalindrome(sb.toString())) {
-                if (sb.length() > maxLen) {
-                    maxLen = sb.length();
-                }
-                sb.deleteCharAt(i);
-            }
-        }
-        if (sb.length() > maxLen) {
-            maxLen = sb.length();
-        }
+    // default to 0s
+    int resultStart;
+    int resultLength;
 
-        return maxLen;
-
+    public String longestPalindrome(String s) {
+        int strLength = s.length();
+        if (strLength < 2) {
+            return s;
+        }
+        for (int start = 0; start < strLength - 1; start++) {
+            expandRange(s, start, start);
+            expandRange(s, start, start + 1);
+        }
+        return s.substring(resultStart, resultStart + resultLength);
     }
 
-    private boolean isPalindrome(String str) {
-        StringBuilder stringBuilder = new StringBuilder(str);
-        if (str.equals(stringBuilder.reverse().toString()))
-            return true;
-        else
-            return false;
+    private void expandRange(String str, int begin, int end) {
+        while (begin >= 0 && end < str.length() &&
+                str.charAt(begin) == str.charAt(end)) {
+            begin--;
+            end++;
+        }
+        if (resultLength < end - begin - 1) {
+            resultStart = begin + 1;
+            resultLength = end - begin - 1;
+        }
     }
 
     /**

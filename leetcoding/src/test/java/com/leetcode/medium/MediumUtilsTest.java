@@ -15,6 +15,10 @@ public class MediumUtilsTest {
 
     @Test
     public void longestPalindromeSubstring() {
-        assertThat(mediumUtils.longestPalindromeSubstring("bananas")).isEqualTo(5);
+        assertThat(mediumUtils.longestPalindrome("bananas")).isEqualTo("anana");
+        assertThat(mediumUtils.longestPalindrome("bananas").length()).isEqualTo(5);
+
+        assertThat(mediumUtils.longestPalindrome("abc")).isEqualTo("121");
+        assertThat(mediumUtils.longestPalindrome("abc").length()).isEqualTo(3);
     }
 }
