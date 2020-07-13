@@ -5,6 +5,20 @@ import java.util.List;
 /**
  * Implementations of DFS BFS recursive and iterative
  */
+
+class BinaryTree {
+    int val;
+    BinaryTree left;
+    BinaryTree right;
+    BinaryTree() {}
+    BinaryTree(int val) {this.val = val;}
+    BinaryTree(int val, BinaryTree left, BinaryTree right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
 public class TreesUtil {
     /**
      * Inorder tree traversal of Binary Tree
@@ -43,19 +57,8 @@ public class TreesUtil {
      *     }
      * }
      */
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) {this.val = val;}
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-    public List<Integer> inorderTraversal(TreeNode root) {
+
+    public List<Integer> inorderTraversal(BinaryTree root) {
 
 
         return null;

@@ -21,14 +21,42 @@ public class MatrixUtil {
 
             for(int row = 0 ; row < table.length ; row++) { // iterate on row
                 for(int col = 0 ; col < table[0].length ; col++) { // iterate on column
-                    System.out.print(table[row][col]);
+                    System.out.print(table[row][col] + " ");
                 }
+                System.out.println("\n");
             }
 
     }
 
     /**
      * Absolute diagonal difference
+     */
+    int diagonalSum(int matrix[][]) {
+        int psum = 0;
+        int ssum = 0;
+        for(int row = 0 ; row < matrix.length ; row++)
+            for (int col = 0; col < matrix[0].length; col++) {
+                if (row == col) { // primary diagonal condition
+                    psum += matrix[row][col];
+                } else if ((row+col) == (matrix.length - 1)) { // secondary diagonal condition
+                    ssum += matrix[row][col];
+                }
+            }
+
+        return psum+ssum;
+    }
+
+    /**
+     * Maximum path sum in matrix
+     */
+
+    /**
+     * Max Sum Path in matrix
+     * Dynamic Programming , recursion
+     */
+
+    /**
+     * Matrix Transpose
      */
 
 

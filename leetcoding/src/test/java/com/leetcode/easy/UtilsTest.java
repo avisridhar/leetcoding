@@ -15,6 +15,17 @@ public class UtilsTest {
 
     }
 
+    @Test
+    public void isPrefixOfWord() {
+        String sentence = "i love eating burger";
+        String searchWord = "burg";
+        assertThat(utils.isPrefixOfWord(sentence, searchWord)).isEqualTo(4);
+
+        sentence = "hellohello hellohellohello";
+        searchWord = "ell";
+        assertThat(utils.isPrefixOfWord(sentence, searchWord)).isEqualTo(4);
+    }
+
     /**
      * Example 1:
      *

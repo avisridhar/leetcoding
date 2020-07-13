@@ -4,8 +4,29 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Utils {
+
+    /**
+     * https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/
+     */
+
+    public int isPrefixOfWord(String sentence, String searchWord) {
+        String[] splitStr = sentence.split(" ");
+        int idx = -1;
+        for (int i = 0 ;i < splitStr.length ; i++) {
+            idx = splitStr[i].indexOf(searchWord);
+            if (idx == 0) {
+                return i + 1;
+            }
+        }
+
+        return idx;
+
+    }
+
 
     /**
      * Day of Year

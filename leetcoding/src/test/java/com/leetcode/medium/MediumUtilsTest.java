@@ -14,6 +14,16 @@ public class MediumUtilsTest {
     }
 
     @Test
+    public void longestPalindrome1() {
+        /*assertThat(mediumUtils.longestPalindrome1("bananas")).isEqualTo("anana");
+        assertThat(mediumUtils.longestPalindrome1("bananas").length()).isEqualTo(5);*/
+
+        assertThat(mediumUtils.longestPalindrome1("1221")).isEqualTo("1221");
+        assertThat(mediumUtils.longestPalindrome1("1221").length()).isEqualTo(4);
+
+    }
+
+    @Test
     public void longestPalindromeSubstring() {
         assertThat(mediumUtils.longestPalindrome("bananas")).isEqualTo("anana");
         assertThat(mediumUtils.longestPalindrome("bananas").length()).isEqualTo(5);

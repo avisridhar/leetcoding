@@ -3,7 +3,7 @@ package com.matrix;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MatrixUtilTest {
     private MatrixUtil matrixUtil;
@@ -15,22 +15,31 @@ public class MatrixUtilTest {
 
     @Test
     public void printMatrix() {
-        int table[][] = new int[3][4];
-        // row 0
-        table[0][0] = 2;
-        table[0][1] = 4;
-        table[0][2] = 8;
-        table[0][3] = 4;
-// row 1
-        table[1][0] = 12;
-        table[1][1] = 14;
-        table[1][2] = 18;
-        table[1][3] = 14;
-// row 2
-        table[2][0] = -2;
-        table[2][1] = 6;
-        table[2][2] = 8;
-        table[2][3] = 10;
+        int arr[] = new int[] {1, 2, 3};
+        /*int table[][] = {
+                {2, 4, 8, 4},
+                {12, 14, 18, 14},
+                {-2, 6, 8, 10}
+                };*/
+        int table[][] = new int [][]{
+            {2, 4, 8},
+            {12, 14, 18},
+            {-2, 6, 8}
+        };
         matrixUtil.printMatrix(table);
+    }
+
+    /**
+     * Absolute diagonal difference
+     */
+    @Test
+    public void testAbsoluteDiagonalDifference() {
+        int table[][] = new int [][]{
+                {2, 4, 8},
+                {12, 14, 18},
+                {-2, 6, 8}
+        };
+        assertThat(matrixUtil.diagonalSum(table)).isEqualTo(44);
+
     }
 }
